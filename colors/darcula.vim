@@ -142,6 +142,10 @@ call s:highlight("Operator",            "WHITE",           "NONE",            "N
 
 " special syntax =============================================================================================
 
+" diff
+call s:highlight("diffAdded", "GREEN", "NONE", "NONE")
+call s:highlight("diffRemoved", "RED", "NONE", "NONE")
+
 " html
 hi link htmltagname Keyword
 hi link htmlstring String
