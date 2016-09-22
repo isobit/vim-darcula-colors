@@ -1,4 +1,4 @@
-# vim-caddyfile
+# vim-darcula-colors
 Vim colors inspired by Intellij IDEA's Darcula theme.
 
 ## Installation
