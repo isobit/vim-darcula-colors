@@ -44,8 +44,8 @@ call s:set_color("LIGHTER_GREY",    238,     "#444444")
 "additonal
 call s:set_color("ORANGE",          172,     "#d78700")
 call s:set_color("DARK_ORANGE",     130,     "#af5f00")
+call s:set_color("RED_ORANGE",      131,     "#af5f5f")
 call s:set_color("DARK_SEA_GREEN",  65,      "#5f875f")
-call s:set_color("RED_ORANGE",      173,     "#d7875f")
 call s:set_color("DARK_MAGENTA",    103,     "#8787af")
 call s:set_color("LIGHT_BLUE",      67,      "#5f87af")
 
@@ -141,6 +141,10 @@ call s:highlight("Delimiter",           "WHITE",           "NONE",            "N
 call s:highlight("Operator",            "WHITE",           "NONE",            "NONE")
 
 " special syntax =============================================================================================
+
+" indentation lines
+let g:indentLine_setColors = 0
+call s:highlight("Conceal", "LIGHT_GREY", "NONE", "NONE")
 
 " git commit
 call s:highlight("gitcommitSummary", "WHITE", "GREY", "NONE")
