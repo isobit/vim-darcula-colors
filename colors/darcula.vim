@@ -1,4 +1,6 @@
-" darcula color scheme
+" Darcula color scheme
+" Josh Glendenning
+
 set background=dark
 hi clear
 
@@ -8,152 +10,142 @@ endif
 
 let colors_name = "darcula"
 
-" colors ========================================================
+" Colors
+" -----------------------------------------------------------------------------
 
-let s:colors = {}
-function! s:set_color(name, num, hex)
-	let s:colors[a:name] = [a:num, a:hex]
-endfunction
+" Standard
+let s:NONE           = ["NONE", "NONE"]
+let s:BLACK          = [0,   "#000000"]
+let s:RED            = [1,   "#800000"]
+let s:GREEN          = [2,   "#008000"]
+let s:YELLOW         = [3,   "#808000"]
+let s:BLUE           = [4,   "#000080"]
+let s:MAGENTA        = [5,   "#800080"]
+let s:CYAN           = [6,   "#008080"]
+let s:WHITE          = [7,   "#c0c0c0"]
+let s:BRIGHT_BLACK   = [8,   "#808080"]
+let s:BRIGHT_RED     = [9,   "#ff0000"]
+let s:BRIGHT_GREEN   = [10,  "#00ff00"]
+let s:BRIGHT_YELLOW  = [11,  "#ffff00"]
+let s:BRIGHT_BLUE    = [12,  "#0000ff"]
+let s:BRIGHT_MAGENTA = [13,  "#ff00ff"]
+let s:BRIGHT_CYAN    = [14,  "#00ffff"]
+let s:BRIGHT_WHITE   = [15,  "#ffffff"]
 
-" standard
-call s:set_color("NONE",            "NONE",  "NONE")
-call s:set_color("BLACK",           0,       "#000000")
-call s:set_color("RED",             1,       "#800000")
-call s:set_color("GREEN",           2,       "#008000")
-call s:set_color("YELLOW",          3,       "#808000")
-call s:set_color("BLUE",            4,       "#000080")
-call s:set_color("MAGENTA",         5,       "#800080")
-call s:set_color("CYAN",            6,       "#008080")
-call s:set_color("WHITE",           7,       "#c0c0c0")
-call s:set_color("BRIGHT_BLACK",    8,       "#808080")
-call s:set_color("BRIGHT_RED",      9,       "#ff0000")
-call s:set_color("BRIGHT_GREEN",    10,      "#00ff00")
-call s:set_color("BRIGHT_YELLOW",   11,      "#ffff00")
-call s:set_color("BRIGHT_BLUE",     12,      "#0000ff")
-call s:set_color("BRIGHT_MAGENTA",  13,      "#ff00ff")
-call s:set_color("BRIGHT_CYAN",     14,      "#00ffff")
-call s:set_color("BRIGHT_WHITE",    15,      "#ffffff")
+" Grey
+let s:GREY           = [234, "#1c1c1c"]
+let s:DARK_GREY      = [233, "#121212"]
+let s:DARKER_GREY    = [232, "#080808"]
+let s:LIGHT_GREY     = [236, "#303030"]
+let s:LIGHTER_GREY   = [238, "#444444"]
 
-" greys
-call s:set_color("GREY",            234,     "#1c1c1c")
-call s:set_color("DARK_GREY",       233,     "#121212")
-call s:set_color("DARKER_GREY",     232,     "#080808")
-call s:set_color("LIGHT_GREY",      236,     "#303030")
-call s:set_color("LIGHTER_GREY",    238,     "#444444")
+" Additional
+let s:ORANGE         = [172, "#d78700"]
+let s:DARK_ORANGE    = [130, "#af5f00"]
+let s:RED_ORANGE     = [131, "#af5f5f"]
+let s:DARK_SEA_GREEN = [65,  "#5f875f"]
+let s:DARK_MAGENTA   = [103, "#8787af"]
+let s:LIGHT_BLUE     = [67,  "#5f87af"]
 
-"additonal
-call s:set_color("ORANGE",          172,     "#d78700")
-call s:set_color("DARK_ORANGE",     130,     "#af5f00")
-call s:set_color("RED_ORANGE",      131,     "#af5f5f")
-call s:set_color("DARK_SEA_GREEN",  65,      "#5f875f")
-call s:set_color("DARK_MAGENTA",    103,     "#8787af")
-call s:set_color("LIGHT_BLUE",      67,      "#5f87af")
+" Highlight
+" -----------------------------------------------------------------------------
 
-" highlight ========================================================
-
-function! s:highlight(group, fg, bg, attr, ...)
-	if a:0 >= 1
-		if version < a:1
-			return
-		endif
-	endif
-	let fg = s:colors[a:fg]
-	let bg = s:colors[a:bg]
-	exec "hi " . a:group . " guifg=" . fg[1]
-	exec "hi " . a:group . " ctermfg=" . fg[0]
-	exec "hi " . a:group . " guibg=" . bg[1]
-	exec "hi " . a:group . " ctermbg=" . bg[0]
-	exec "hi " . a:group . " gui=" . a:attr
+function! s:highlight(group, fg, bg, attr)
+	exec "hi " . a:group . " ctermfg=" . a:fg[0]
+	exec "hi " . a:group . " ctermbg=" . a:bg[0]
 	exec "hi " . a:group . " cterm=" . a:attr
+	exec "hi " . a:group . " guifg=" . a:fg[1]
+	exec "hi " . a:group . " guibg=" . a:bg[1]
+	exec "hi " . a:group . " gui=" . a:attr
 endfunction
 
-" general text
-call s:highlight("Normal",              "WHITE",           "GREY",            "NONE")
-call s:highlight("NonText",             "GREY",            "NONE",            "NONE")
+" General text
+call s:highlight("Normal",   s:WHITE,  s:GREY,  "NONE")
+call s:highlight("NonText",  s:GREY,   s:NONE,  "NONE")
 
-" cursor
-call s:highlight("Cursor",              "GREY",            "WHITE",           "reverse")
-call s:highlight("CursorLine",          "BRIGHT_WHITE",    "BRIGHT_BLACK",    "NONE",     700)
-call s:highlight("ColorColumn",         "BRIGHT_WHITE",    "BRIGHT_BLACK",    "NONE",     700)
-call s:highlight("CursorColumn",        "NONE",            "NONE",            "NONE",     700)
+" Cursor
+call s:highlight("Cursor",        s:GREY,          s:WHITE,         "REVERSE")
+call s:highlight("CursorLine",    s:BRIGHT_WHITE,  s:BRIGHT_BLACK,  "NONE")
+call s:highlight("ColorColumn",   s:BRIGHT_WHITE,  s:BRIGHT_BLACK,  "NONE")
+call s:highlight("CursorColumn",  s:NONE,          s:NONE,          "NONE")
 
-" windows and tabs
-call s:highlight("ModeMsg",             "CYAN",            "NONE",            "NONE")
-call s:highlight("LineNr",              "BRIGHT_BLACK",    "LIGHT_GREY",      "NONE")
-call s:highlight("VertSplit",           "NONE",            "BRIGHT_BLACK",    "NONE")
-call s:highlight("Ignore",              "NONE",            "NONE",            "NONE")
-call s:highlight("Title",               "NONE",            "NONE",            "NONE")
-call s:highlight("StatusLine",          "WHITE",           "BRIGHT_BLACK",    "NONE")
-call s:highlight("StatusLineNC",        "WHITE",           "BRIGHT_BLACK",    "NONE")
-call s:highlight("TabLine",             "WHITE",           "LIGHT_GREY",      "NONE",     700)
-call s:highlight("TabLineSel",          "WHITE",           "BRIGHT_BLACK",    "BOLD",     700)
-call s:highlight("TabLineFill",         "NONE",            "NONE",            "NONE",     700)
+" Windows and tabs
+call s:highlight("ModeMsg",       s:CYAN,          s:NONE,          "NONE")
+call s:highlight("LineNr",        s:BRIGHT_BLACK,  s:LIGHT_GREY,    "NONE")
+call s:highlight("VertSplit",     s:NONE,          s:BRIGHT_BLACK,  "NONE")
+call s:highlight("Ignore",        s:NONE,          s:NONE,          "NONE")
+call s:highlight("Title",         s:NONE,          s:NONE,          "NONE")
+call s:highlight("StatusLineNC",  s:WHITE,         s:LIGHT_GREY,    "BOLD")
+call s:highlight("StatusLine",    s:WHITE,         s:BRIGHT_BLACK,  "NONE")
+call s:highlight("TabLine",       s:WHITE,         s:LIGHT_GREY,    "NONE")
+call s:highlight("TabLineSel",    s:WHITE,         s:BRIGHT_BLACK,  "BOLD")
+call s:highlight("TabLineFill",   s:NONE,          s:NONE,          "NONE")
 
-" selections and blocks
-call s:highlight("Visual",              "NONE",            "LIGHTER_GREY",    "NONE")
-call s:highlight("VisualNOS",           "NONE",            "BRIGHT_BLACK",    "NONE")
-call s:highlight("MatchParen",          "NONE",            "BRIGHT_BLACK",    "NONE",     700)
-call s:highlight("Search",              "NONE",            "DARK_SEA_GREEN",  "NONE",     700)
-call s:highlight("Folded",              "BRIGHT_BLACK",    "NONE",            "NONE")
+" Selections and blocks
+call s:highlight("Visual",      s:NONE,          s:LIGHTER_GREY,    "NONE")
+call s:highlight("VisualNOS",   s:NONE,          s:BRIGHT_BLACK,    "NONE")
+call s:highlight("MatchParen",  s:NONE,          s:BRIGHT_BLACK,    "NONE")
+call s:highlight("Search",      s:NONE,          s:DARK_SEA_GREEN,  "NONE")
+call s:highlight("Folded",      s:BRIGHT_BLACK,  s:NONE,            "NONE")
 
-" menus
-call s:highlight("WildMenu",            "GREY",            "WHITE",           "NONE")
+" Menus
+call s:highlight("WildMenu",  s:GREY,  s:WHITE,  "NONE")
 
-" errors and warnings
-call s:highlight("Error",               "NONE",            "RED",             "NONE")
-call s:highlight("ErrorMsg",            "NONE",            "RED",             "NONE")
-call s:highlight("WarningMsg",          "NONE",            "YELLOW",          "NONE")
-call s:highlight("SpellBad",            "NONE",            "YELLOW",          "NONE")
-call s:highlight("Todo",                "NONE",            "MAGENTA",         "NONE")
+" Errors and warnings
+call s:highlight("Error",       s:NONE,  s:RED,      "NONE")
+call s:highlight("ErrorMsg",    s:NONE,  s:RED,      "NONE")
+call s:highlight("WarningMsg",  s:NONE,  s:YELLOW,   "NONE")
+call s:highlight("SpellBad",    s:NONE,  s:YELLOW,   "NONE")
+call s:highlight("Todo",        s:NONE,  s:MAGENTA,  "NONE")
 
-" popup menu
-call s:highlight("Pmenu",               "GREY",            "BRIGHT_BLACK",    "NONE",     700)
-call s:highlight("PmenuSel",            "GREY",            "WHITE",           "NONE",     700)
-call s:highlight("PmenuSbar",           "GREY",            "WHITE",           "NONE",     700)
+" Popup menu
+call s:highlight("Pmenu",      s:GREY,  s:BRIGHT_BLACK,  "NONE")
+call s:highlight("PmenuSel",   s:GREY,  s:WHITE,         "NONE")
+call s:highlight("PmenuSbar",  s:GREY,  s:WHITE,         "NONE")
 
 " NERDTree
-call s:highlight("Directory",           "BLUE",            "NONE",            "NONE",     700)
-call s:highlight("NERDTreeExecFile",    "WHITE",           "GREY",            "NONE",     700)
-call s:highlight("NERDTreeClosable",    "WHITE",           "GREY",            "NONE",     700)
-call s:highlight("NERDTreeOpenable",    "WHITE",           "GREY",            "NONE",     700)
-call s:highlight("NERDTreeLinkFile",    "WHITE",           "GREY",            "NONE",     700)
-call s:highlight("NERDTreeLinkTarget",  "CYAN",            "NONE",            "NONE",     700)
+call s:highlight("Directory",           s:BLUE,   s:NONE,  "NONE")
+call s:highlight("NERDTreeExecFile",    s:WHITE,  s:GREY,  "NONE")
+call s:highlight("NERDTreeClosable",    s:WHITE,  s:GREY,  "NONE")
+call s:highlight("NERDTreeOpenable",    s:WHITE,  s:GREY,  "NONE")
+call s:highlight("NERDTreeLinkFile",    s:WHITE,  s:GREY,  "NONE")
+call s:highlight("NERDTreeLinkTarget",  s:CYAN,   s:NONE,  "NONE")
 
-" syntax
-call s:highlight("Comment",             "BRIGHT_BLACK",    "NONE",            "NONE")
-call s:highlight("String",              "DARK_SEA_GREEN",  "NONE",            "NONE")
-call s:highlight("Number",              "CYAN",            "NONE",            "NONE")
-call s:highlight("Constant",            "CYAN",            "NONE",            "NONE")
+" Syntax
+call s:highlight("Comment",     s:BRIGHT_BLACK,    s:NONE,  "NONE")
 
-call s:highlight("Keyword",             "ORANGE",          "NONE",            "NONE")
-call s:highlight("Statement",           "ORANGE",          "NONE",            "NONE")
-call s:highlight("PreProc",             "ORANGE",          "NONE",            "NONE")
-call s:highlight("PreCondit",           "BRIGHT_YELLOW",   "NONE",            "NONE")
-call s:highlight("Structure",           "LIGHT_BLUE",      "NONE",            "NONE")
+call s:highlight("Constant",    s:CYAN,            s:NONE,  "NONE")
+call s:highlight("String",      s:DARK_SEA_GREEN,  s:NONE,  "NONE")
 
-call s:highlight("Identifier",          "DARK_MAGENTA",    "NONE",            "NONE")
-call s:highlight("Function",            "DARK_MAGENTA",    "NONE",            "NONE")
-call s:highlight("Class",               "DARK_MAGENTA",    "NONE",            "NONE")
-call s:highlight("Type",                "DARK_ORANGE",     "NONE",            "NONE")
+call s:highlight("Identifier",  s:DARK_MAGENTA,    s:NONE,  "NONE")
 
-call s:highlight("Special",             "RED_ORANGE",      "NONE",            "NONE")
-call s:highlight("Delimiter",           "WHITE",           "NONE",            "NONE")
-call s:highlight("Operator",            "WHITE",           "NONE",            "NONE")
+call s:highlight("Statement",   s:ORANGE,          s:NONE,  "NONE")
+call s:highlight("Operator",    s:WHITE,           s:NONE,  "NONE")
 
-" special syntax =============================================================================================
+call s:highlight("PreProc",     s:ORANGE,          s:NONE,  "NONE")
+call s:highlight("PreCondit",   s:BRIGHT_YELLOW,   s:NONE,  "NONE")
 
-" indentation lines
+call s:highlight("Type",        s:DARK_ORANGE,     s:NONE,  "NONE")
+call s:highlight("Structure",   s:LIGHT_BLUE,      s:NONE,  "NONE")
+
+call s:highlight("Special",     s:RED_ORANGE,      s:NONE,  "NONE")
+call s:highlight("Delimiter",   s:WHITE,           s:NONE,  "NONE")
+
+" Special syntax
+" -----------------------------------------------------------------------------
+
+" Indentation lines
 let g:indentLine_setColors = 0
-call s:highlight("Conceal", "LIGHT_GREY", "NONE", "NONE")
+call s:highlight("Conceal", s:LIGHT_GREY, s:NONE, "NONE")
 
 " git commit
-call s:highlight("gitcommitSummary", "WHITE", "GREY", "NONE")
+call s:highlight("gitcommitSummary", s:WHITE, s:GREY, "NONE")
 
-" diff
-call s:highlight("diffAdded", "GREEN", "NONE", "NONE")
-call s:highlight("diffRemoved", "RED", "NONE", "NONE")
+" git diff
+call s:highlight("diffAdded", s:GREEN, s:NONE, "NONE")
+call s:highlight("diffRemoved", s:RED, s:NONE, "NONE")
 
-" html
+" HTML
 hi link htmltagname Keyword
 hi link htmlstring String
 hi link htmlH1 Statement
@@ -163,6 +155,6 @@ hi link htmlH4 Statement
 hi link htmlH5 Statement
 hi link htmlH6 Statement
 
-" markdown
-call s:highlight("mkdURL", "CYAN", "NONE", "UNDERLINE")
-call s:highlight("mkdLink", "NONE", "NONE", "BOLD")
+" Markdown
+call s:highlight("mkdURL", s:CYAN, s:NONE, "UNDERLINE")
+call s:highlight("mkdLink", s:NONE, s:NONE, "BOLD")
