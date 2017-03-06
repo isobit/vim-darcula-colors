@@ -64,7 +64,7 @@ call s:highlight("Normal",   s:WHITE,  s:GREY,  "NONE")
 call s:highlight("NonText",  s:GREY,   s:NONE,  "NONE")
 
 " Cursor
-call s:highlight("Cursor",        s:GREY,          s:WHITE,         "REVERSE")
+call s:highlight("Cursor",        s:BRIGHT_WHITE,  s:BRIGHT_BLACK,  "REVERSE")
 call s:highlight("CursorLine",    s:BRIGHT_WHITE,  s:BRIGHT_BLACK,  "NONE")
 call s:highlight("ColorColumn",   s:BRIGHT_WHITE,  s:BRIGHT_BLACK,  "NONE")
 call s:highlight("CursorColumn",  s:NONE,          s:NONE,          "NONE")
