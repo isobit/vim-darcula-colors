@@ -46,6 +46,7 @@ let s:RED_ORANGE     = [131, "#af5f5f"]
 let s:DARK_SEA_GREEN = [65,  "#5f875f"]
 let s:DARK_MAGENTA   = [103, "#8787af"]
 let s:LIGHT_BLUE     = [67,  "#5f87af"]
+let s:DARK_YELLOW    = [17, "#00005f"]
 
 " Highlight
 " -----------------------------------------------------------------------------
@@ -95,7 +96,7 @@ call s:highlight("WildMenu",  s:GREY,  s:WHITE,  "NONE")
 call s:highlight("Error",       s:NONE,  s:RED,      "NONE")
 call s:highlight("ErrorMsg",    s:NONE,  s:RED,      "NONE")
 call s:highlight("WarningMsg",  s:NONE,  s:YELLOW,   "NONE")
-call s:highlight("SpellBad",    s:NONE,  s:YELLOW,   "NONE")
+call s:highlight("SpellBad",    s:NONE,  s:NONE,     "UNDERLINE")
 call s:highlight("Todo",        s:NONE,  s:MAGENTA,  "NONE")
 
 " Popup menu
@@ -133,6 +134,11 @@ call s:highlight("Delimiter",   s:WHITE,           s:NONE,  "NONE")
 
 " Special syntax
 " -----------------------------------------------------------------------------
+
+" OverLength
+" Use something like the following in vimrc to highlight overlength characters
+" match OverLength /\%81v.\+/
+call s:highlight("OverLength", s:NONE, s:LIGHT_GREY, "UNDERLINE")
 
 " Indentation lines
 let g:indentLine_setColors = 0
