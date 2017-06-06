@@ -60,9 +60,10 @@ function! s:highlight(group, fg, bg, attr)
 	exec "hi " . a:group . " gui=" . a:attr
 endfunction
 
-" General text
-call s:highlight("Normal",   s:WHITE,  s:GREY,  "NONE")
-call s:highlight("NonText",  s:GREY,   s:NONE,  "NONE")
+" General
+call s:highlight("Normal",   s:WHITE,       s:GREY,  "NONE")
+call s:highlight("NonText",  s:GREY,        s:NONE,  "NONE")
+call s:highlight("Conceal",  s:LIGHT_GREY,  s:NONE,  "NONE")
 
 " Cursor
 call s:highlight("Cursor",        s:BRIGHT_WHITE,  s:BRIGHT_BLACK,  "REVERSE")
@@ -139,10 +140,6 @@ call s:highlight("Delimiter",   s:WHITE,           s:NONE,  "NONE")
 " Use something like the following in vimrc to highlight overlength characters
 " match OverLength /\%81v.\+/
 call s:highlight("OverLength", s:NONE, s:LIGHT_GREY, "UNDERLINE")
-
-" Indentation lines
-let g:indentLine_setColors = 0
-call s:highlight("Conceal", s:LIGHT_GREY, s:NONE, "NONE")
 
 " git commit
 call s:highlight("gitcommitSummary", s:WHITE, s:GREY, "NONE")
