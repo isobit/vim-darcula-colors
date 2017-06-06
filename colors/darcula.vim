@@ -139,7 +139,7 @@ call s:highlight("Delimiter",   s:WHITE,           s:NONE,  "NONE")
 " OverLength
 " Use something like the following in vimrc to highlight overlength characters
 " match OverLength /\%81v.\+/
-call s:highlight("OverLength", s:NONE, s:LIGHT_GREY, "UNDERLINE")
+call s:highlight("OverLength", s:NONE, s:LIGHTER_GREY, "NONE")
 
 " git commit
 call s:highlight("gitcommitSummary", s:WHITE, s:GREY, "NONE")
@@ -159,5 +159,5 @@ hi link htmlH5 Statement
 hi link htmlH6 Statement
 
 " Markdown
-call s:highlight("mkdURL", s:CYAN, s:NONE, "UNDERLINE")
-call s:highlight("mkdLink", s:NONE, s:NONE, "BOLD")
+call s:highlight("mkdURL",   s:CYAN,  s:NONE,  "NONE")
+call s:highlight("mkdLink",  s:NONE,  s:NONE,  "BOLD")
