@@ -145,8 +145,8 @@ call s:highlight("OverLength", s:NONE, s:LIGHTER_GREY, "NONE")
 call s:highlight("gitcommitSummary", s:WHITE, s:GREY, "NONE")
 
 " git diff
-call s:highlight("diffAdded", s:GREEN, s:NONE, "NONE")
-call s:highlight("diffRemoved", s:RED, s:NONE, "NONE")
+call s:highlight("diffAdded",    s:GREEN,  s:NONE,  "NONE")
+call s:highlight("diffRemoved",  s:RED,    s:NONE,  "NONE")
 
 " HTML
 hi link htmltagname Keyword
