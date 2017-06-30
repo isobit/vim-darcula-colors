@@ -33,7 +33,7 @@ let s:CYAN           = [44,   "#00d7d7"]
 let s:DARK_ORANGE    = [130, "#af5f00"]
 let s:DARK_SEA_GREEN = [65,  "#5f875f"]
 let s:GREEN          = [34,  "#00af00"]
-let s:BLUE     = [67,  "#5f87af"]
+let s:BLUE           = [67,  "#5f87af"]
 let s:MAGENTA        = [198,   "#ff0087"]
 let s:ORANGE         = [172, "#d78700"]
 let s:PURPLE         = [103, "#8787af"]
@@ -85,7 +85,7 @@ call s:highlight("VertSplit",           s:NONE,            s:LIGHT_GREY,       "
 call s:highlight("Visual",              s:NONE,            s:GREY,            "NONE")
 call s:highlight("VisualNOS",           s:NONE,            s:GREY,            "NONE")
 call s:highlight("MatchParen",          s:NONE,            s:GREY,            "NONE")
-call s:highlight("Search",              s:NONE,            s:DARK_SEA_GREEN,  "NONE")
+call s:highlight("Search",              s:BLACK,           s:CYAN,            "NONE")
 call s:highlight("Folded",              s:LIGHTER_GREY,    s:DARK_GREY,       "NONE")
 
 " Menus
@@ -130,9 +130,22 @@ call s:highlight("NERDTreeLinkFile",    s:PURPLE,          s:DARKER_GREY,     "N
 call s:highlight("NERDTreeLinkTarget",  s:CYAN,            s:NONE,            "NONE")
 
 " OverLength
-" Use something like the following in vimrc to highlight overlength characters
-" match OverLength /\%81v.\+/
-call s:highlight("OverLength",  s:NONE,  s:GREY,  "NONE")
+" Use something like the following in vimrc to highlight characters over the
+" textwidth line length limit:
+" 		augroup vimrc_match_overlength
+" 			autocmd!
+" 			autocmd FileType * execute 'match OverLength /\%'.(&textwidth + 1).'v.\+/ containedin=ALL'
+" 		augroup END
+call s:highlight("OverLength", s:NONE, s:GREY, "NONE")
+
+" TrailingWhitespace
+" Use something like the following in vimrc to highlight trailing whitespace
+" characters:
+" 		augroup vimrc_trailingwhitespace_syntax
+" 			autocmd!
+" 			autocmd FileType * syntax match TrailingWhitespace /\s\+$/ containedin=ALL
+" 		augroup END
+call s:highlight("TrailingWhitespace", s:NONE, s:RED, "NONE")
 
 " git commit
 call s:highlight("gitcommitSummary",  s:WHITE,   s:DARKER_GREY,  "NONE")
