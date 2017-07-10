@@ -29,11 +29,13 @@ let s:WHITE          = [7,   "#c0c0c0"]
 let s:DARK_WHITE     = [247, "#9e9e9e"]
 
 " Colors
+let s:BLUE           = [67,  "#5f87af"]
+let s:BRIGHT_PURPLE  = [57,  "#5f00ff"]
 let s:CYAN           = [44,  "#00d7d7"]
 let s:DARK_ORANGE    = [130, "#af5f00"]
 let s:DARK_SEA_GREEN = [65,  "#5f875f"]
 let s:GREEN          = [34,  "#00af00"]
-let s:BLUE           = [67,  "#5f87af"]
+let s:LIGHT_CYAN     = [73,  "#5fafaf"]
 let s:MAGENTA        = [198, "#ff0087"]
 let s:ORANGE         = [172, "#d78700"]
 let s:PURPLE         = [103, "#8787af"]
@@ -64,6 +66,8 @@ call s:highlight("NonText",       s:DARKER_GREY,     s:NONE,          "NONE")
 call s:highlight("Conceal",       s:DARK_GREY,       s:NONE,          "NONE")
 call s:highlight("Ignore",        s:NONE,            s:NONE,          "NONE")
 
+call s:highlight("SpecialKey",    s:BRIGHT_PURPLE,   s:NONE,          "NONE")
+
 " Cursor
 call s:highlight("Cursor",        s:NONE,            s:GREY,          "REVERSE")
 call s:highlight("CursorLine",    s:NONE,            s:GREY,          "NONE")
@@ -72,8 +76,8 @@ call s:highlight("CursorColumn",  s:NONE,            s:GREY,          "NONE")
 
 " Windows and tabs
 call s:highlight("LineNr",        s:LIGHT_GREY,      s:DARK_GREY,     "NONE")
-call s:highlight("ModeMsg",       s:CYAN,            s:NONE,          "NONE")
-call s:highlight("MoreMsg",       s:CYAN,            s:NONE,          "NONE")
+call s:highlight("ModeMsg",       s:LIGHT_CYAN,      s:NONE,          "NONE")
+call s:highlight("MoreMsg",       s:LIGHT_CYAN,      s:NONE,          "NONE")
 call s:highlight("StatusLine",    s:WHITE,           s:DARK_GREY,     "NONE")
 call s:highlight("StatusLineNC",  s:WHITE,           s:DARK_GREY,     "BOLD")
 call s:highlight("TabLine",       s:WHITE,           s:DARK_GREY,     "NONE")
@@ -86,7 +90,7 @@ call s:highlight("VertSplit",     s:NONE,            s:LIGHT_GREY,    "NONE")
 call s:highlight("Visual",        s:NONE,            s:GREY,          "NONE")
 call s:highlight("VisualNOS",     s:NONE,            s:GREY,          "NONE")
 call s:highlight("MatchParen",    s:NONE,            s:GREY,          "NONE")
-call s:highlight("Search",        s:BLACK,           s:CYAN,          "NONE")
+call s:highlight("Search",        s:WHITE,           s:BRIGHT_PURPLE, "NONE")
 call s:highlight("Folded",        s:LIGHTER_GREY,    s:DARK_GREY,     "NONE")
 
 " Menus
@@ -134,22 +138,10 @@ call s:highlight("NERDTreeLinkFile",    s:PURPLE,          s:DARKER_GREY,     "N
 call s:highlight("NERDTreeLinkTarget",  s:CYAN,            s:NONE,            "NONE")
 
 " OverLength
-" Use something like the following in vimrc to highlight characters over the
-" textwidth line length limit:
-" 		augroup vimrc_match_overlength
-" 			autocmd!
-" 			autocmd FileType * execute 'match OverLength /\%'.(&textwidth + 1).'v.\+/ containedin=ALL'
-" 		augroup END
 call s:highlight("OverLength", s:NONE, s:GREY, "NONE")
 
 " TrailingWhitespace
-" Use something like the following in vimrc to highlight trailing whitespace
-" characters:
-" 		augroup vimrc_trailingwhitespace_syntax
-" 			autocmd!
-" 			autocmd FileType * syntax match TrailingWhitespace /\s\+$/ containedin=ALL
-" 		augroup END
-call s:highlight("TrailingWhitespace", s:NONE, s:RED, "NONE")
+call s:highlight("TrailingWhitespace", s:NONE, s:BRIGHT_PURPLE, "NONE")
 
 " git commit
 call s:highlight("gitcommitSummary",  s:WHITE,   s:DARKER_GREY,  "NONE")
