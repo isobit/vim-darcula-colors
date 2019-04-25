@@ -143,6 +143,9 @@ call s:highlight("OverLength", s:NONE, s:GREY, "NONE")
 " TrailingWhitespace
 call s:highlight("TrailingWhitespace", s:NONE, s:BRIGHT_PURPLE, "NONE")
 
+" Neovim listchars
+call s:highlight("Whitespace", s:BRIGHT_PURPLE, s:NONE, "NONE")
+
 " git commit
 call s:highlight("gitcommitSummary",  s:WHITE,   s:DARKER_GREY,  "NONE")
 
