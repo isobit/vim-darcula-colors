@@ -176,5 +176,6 @@ call s:highlight("mkdLink",           s:NONE,    s:NONE,         "BOLD")
 " PHP
 hi link phpType Statement
 hi link phpFunction PreCondit
-hi link phpMethod Identifier
+hi link phpMethod PreCondit
 hi link phpVarSelector Identifier
+hi link phpMethodsVar Identifier
