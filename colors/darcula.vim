@@ -172,3 +172,10 @@ hi link htmlH6 Statement
 " Markdown
 call s:highlight("mkdURL",            s:CYAN,    s:NONE,         "NONE")
 call s:highlight("mkdLink",           s:NONE,    s:NONE,         "BOLD")
+
+" PHP
+hi link phpType Statement
+hi link phpFunction Special
+hi link phpFunction PreCondit
+hi link phpMethod Statement
+hi link phpMethod Identifier 
