@@ -182,6 +182,8 @@ hi link phpVarSelector Identifier
 hi link phpMethodsVar Identifier
 hi link phpParent None
 hi link phpDocIdentifier String
-hi link phpDocNamespaceSeparator String
-hi link phpDocParam String
+hi link phpDocNamespaceSeparator None
+hi link phpDocParam None
 hi link phpDocComment String
+hi link phpCommentTitle String
+hi link phpCommentStar String 
