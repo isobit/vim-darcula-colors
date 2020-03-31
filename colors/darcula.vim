@@ -179,3 +179,4 @@ hi link phpFunction PreCondit
 hi link phpMethod PreCondit
 hi link phpVarSelector Identifier
 hi link phpMethodsVar Identifier
+hi link phpParent None
