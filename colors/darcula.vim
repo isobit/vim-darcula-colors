@@ -186,4 +186,5 @@ hi link phpDocNamespaceSeparator None
 hi link phpDocParam None
 hi link phpDocComment String
 hi link phpCommentTitle String
-hi link phpCommentStar String 
+hi link phpCommentStar String
+hi link phpStaticClasses phpRegion
