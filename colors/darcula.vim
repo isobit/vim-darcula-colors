@@ -174,9 +174,14 @@ call s:highlight("mkdURL",            s:CYAN,    s:NONE,         "NONE")
 call s:highlight("mkdLink",           s:NONE,    s:NONE,         "BOLD")
 
 " PHP
+call s:highlight("phpDocTags",        s:DARK_SEA_GREEN,  s:NONE,          "NONE")
 hi link phpType Statement
 hi link phpFunction PreCondit
 hi link phpMethod PreCondit
 hi link phpVarSelector Identifier
 hi link phpMethodsVar Identifier
 hi link phpParent None
+hi link phpDocIdentifier String
+hi link phpDocNamespaceSeparator String
+hi link phpDocParam String
+hi link phpDocComment String
