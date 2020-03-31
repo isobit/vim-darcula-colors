@@ -18,14 +18,14 @@ let s:NONE           = ["NONE", "NONE"]
 let s:BLACK          = [0,   "#000000"]
 
 " Grey
-let s:DARKER_GREY    = [233, "#121212"]
+let s:DARKER_GREY    = [233, "#2B2B2B"]
 let s:DARK_GREY      = [235, "#262626"]
 let s:GREY           = [238, "#444444"]
 let s:LIGHT_GREY     = [240, "#585858"]
 let s:LIGHTER_GREY   = [242, "#666666"]
 
 " White
-let s:WHITE          = [7,   "#c0c0c0"]
+let s:WHITE          = [7,   "#A9B7C6"]
 let s:DARK_WHITE     = [247, "#9e9e9e"]
 
 " Colors
