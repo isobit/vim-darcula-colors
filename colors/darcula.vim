@@ -188,3 +188,6 @@ hi link phpDocComment String
 hi link phpCommentTitle String
 hi link phpCommentStar String
 hi link phpStaticClasses phpRegion
+
+" Yaml
+hi link yamlKey Statement
