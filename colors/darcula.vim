@@ -42,7 +42,7 @@ let s:PURPLE         = [103, "#8787af"]
 let s:RED            = [160, "#d70000"]
 let s:RED_ORANGE     = [131, "#af5f5f"]
 let s:YELLOW         = [226, "#808000"]
-let s:YELLOW_ORANGE  = [178, "#d7af00"]
+let s:YELLOW_ORANGE  = [178, "#ffc66d"]
 
 " Utility
 " -----------------------------------------------------------------------------
@@ -188,6 +188,16 @@ hi link phpDocComment String
 hi link phpCommentTitle String
 hi link phpCommentStar String
 hi link phpStaticClasses phpRegion
+
+" JS
+hi link jsStorageClass Statement
+hi link jsFunction Statement
+hi link jsFunctionKey PreCondit
+hi link jsFuncCall PreCondit
+hi link jsThis Statement
+hi link jsOperatorKeyword Statement
+hi link jsObjectProp Identifier
+hi link jsObjectKey Identifier
 
 " Yaml
 hi link yamlKey Statement
