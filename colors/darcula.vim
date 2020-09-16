@@ -18,14 +18,14 @@ let s:NONE           = ["NONE", "NONE"]
 let s:BLACK          = [0,   "#000000"]
 
 " Grey
-let s:DARKER_GREY    = [233, "#121212"]
+let s:DARKER_GREY    = [233, "#2B2B2B"]
 let s:DARK_GREY      = [235, "#262626"]
 let s:GREY           = [238, "#444444"]
 let s:LIGHT_GREY     = [240, "#585858"]
 let s:LIGHTER_GREY   = [242, "#666666"]
 
 " White
-let s:WHITE          = [7,   "#c0c0c0"]
+let s:WHITE          = [7,   "#A9B7C6"]
 let s:DARK_WHITE     = [247, "#9e9e9e"]
 
 " Colors
@@ -42,7 +42,7 @@ let s:PURPLE         = [103, "#8787af"]
 let s:RED            = [160, "#d70000"]
 let s:RED_ORANGE     = [131, "#af5f5f"]
 let s:YELLOW         = [226, "#808000"]
-let s:YELLOW_ORANGE  = [178, "#d7af00"]
+let s:YELLOW_ORANGE  = [178, "#ffc66d"]
 
 " Utility
 " -----------------------------------------------------------------------------
@@ -172,3 +172,32 @@ hi link htmlH6 Statement
 " Markdown
 call s:highlight("mkdURL",            s:CYAN,    s:NONE,         "NONE")
 call s:highlight("mkdLink",           s:NONE,    s:NONE,         "BOLD")
+
+" PHP
+call s:highlight("phpDocTags",        s:DARK_SEA_GREEN,  s:NONE,          "BOLD")
+hi link phpType Statement
+hi link phpFunction PreCondit
+hi link phpMethod PreCondit
+hi link phpVarSelector Identifier
+hi link phpMethodsVar Identifier
+hi link phpParent None
+hi link phpDocIdentifier Identifier
+hi link phpDocNamespaceSeparator None
+hi link phpDocParam None
+hi link phpDocComment String
+hi link phpCommentTitle String
+hi link phpCommentStar String
+hi link phpStaticClasses phpRegion
+
+" JS
+hi link jsStorageClass Statement
+hi link jsFunction Statement
+hi link jsFunctionKey PreCondit
+hi link jsFuncCall PreCondit
+hi link jsThis Statement
+hi link jsOperatorKeyword Statement
+hi link jsObjectProp Identifier
+hi link jsObjectKey Identifier
+
+" Yaml
+hi link yamlKey Statement
